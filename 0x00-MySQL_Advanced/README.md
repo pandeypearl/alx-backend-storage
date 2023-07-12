@@ -1,6 +1,13 @@
 # 0x00. MySQL advanced
 
-Exploring various advanced MySQL concepts and tasks.
+Exploring the following advanced MySQL concepts and tasks:
+
+   + How to create tables with constraints
+   + How to optimize queries by adding indexes
+   + What is and how to implement stored procedures and functions in MySQL
+   + What is and how to implement views in MySQL
+   + What is and how to implement triggers in MySQL
+
 
 ## Tasks
 
