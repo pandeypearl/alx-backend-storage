@@ -14,7 +14,7 @@ BEGIN
 	        INNER JOIN projects
 		    ON corrections.project_id = projects.id
 	    WHERE corrections.user_id = users.id
-	);
+	    );
 
     UPDATE users
         SET total_weight = (
@@ -23,7 +23,7 @@ BEGIN
 		    INNER JOIN projects
 		        ON corrections.project_id = projects.id
 		WHERE corrections.user_id = users.id
-	);
+	    );
 
     UPDATE users
         SET users.average_score = IF(users.total_weight = 0, 0, users.total_weighted_score / users.total_weight);
