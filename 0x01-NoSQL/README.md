@@ -84,6 +84,7 @@ Write a Python function that lists all documents in a collection:
    + mongo_collection will be the pymongo collection object
 
 file: [8-all.py](8-all.py)
+
 test file: [tests/8-main.py](tests/8-main.py)
 
 
@@ -95,6 +96,7 @@ Write a Python function that inserts a new document in a collection based on kwa
    + Returns the new _id
 
 file: [9-insert_school.py](9-insert_school.py)
+
 test file: [tests/9-main.py](tests/9-main.py)
 
 
@@ -107,6 +109,7 @@ Write a Python function that changes all topics of a school document based on th
    + topics (list of strings) will be the list of topics approached in the school
 
 file: [10-update_topics.py](10-update_topics.py)
+
 test file: [tests/10-main.py](tests/10-main.py)
 
 
@@ -118,6 +121,7 @@ Write a Python function that returns the list of school having a specific topic:
    + topic (string) will be topic searched
 
 file: [11-schools_by_topic.py](11-schools_by_topic.py)
+
 test file: [tests/11-main.py](tests/11-main.py)
 
 
