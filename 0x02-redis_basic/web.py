@@ -18,7 +18,7 @@ def data_cacher(fn: Callable) -> Callable:
         if result:
             return result.decode('utf-8')
         response = fn(url)
-        client.set(f'{url}', response, 10)
+        client.setex(f'{url}', response, 10)
         return response
     return invoker
 
