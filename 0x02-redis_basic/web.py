@@ -27,4 +27,5 @@ def data_cacher(fn: Callable) -> Callable:
 def get_page(url: str) -> str:
     """Returns content of a URL after caching the request's
     response, and tracking the request"""
-    return response.get(url).text
+    response = requests.get(url, timeout=10)
+    return response.text
