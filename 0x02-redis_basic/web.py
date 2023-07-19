@@ -14,7 +14,7 @@ redis_ = redis.Redis()
 def data_cacher(method: Callable) -> Callable:
     """ Caches output of fetched data """
     @wraps(method)
-    def invoker(url):
+    def invoker(url: str) -> str:
         """Wrapper function for caching output"""
         redis_.incr(f'count:{url}')
         cached_result = redis_.get(f'cached:{url}'}
