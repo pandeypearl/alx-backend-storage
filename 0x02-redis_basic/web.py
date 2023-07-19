@@ -14,14 +14,14 @@ redis_ = redis.Redis()
 def data_cacher(method: Callable) -> Callable:
     """ Caches output of fetched data """
     @wraps(method)
-    def invoker(url: str) -> str:
+    def invoker(url) -> str:
         """Wrapper function for caching output"""
         redis_.incr(f'count:{url}')
         cached_result = redis_.get(f'cached:{url}'}
         if cached_result:
             return cached_result.decode('utf-8')
         result = method(url)
-       # redis_store.set(f'count:{url}', 0)
+        redis_store.set(f'count:{url}', 0)
         redis_.setex(f'cached:{url}', 10, result)
         return result
 
