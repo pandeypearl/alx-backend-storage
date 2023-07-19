@@ -17,7 +17,7 @@ def data_cacher(method: Callable) -> Callable:
     def invoker(url) -> str:
         """Wrapper function for caching output"""
         redis_store.incr(f'count:{url}')
-        result = redis_store.get(f'result:{url}'}
+        result = redis_store.get(f'result:{url}')
         if result:
             return result.decode('utf-8')
         result = method(url)
@@ -31,4 +31,4 @@ def data_cacher(method: Callable) -> Callable:
 def get_page(url: str) -> str:
     """Returns content of a URL after caching the request's
     response, and tracking the request"""
-    return requests.get(url)text
+    return requests.get(url).text
