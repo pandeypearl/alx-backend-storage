@@ -5,7 +5,7 @@ import redis
 import requests
 from functools import wraps
 from typing import Callable
-
+import time
 
 def data_cacher(fn: Callable) -> Callable:
     """ Caches output of fetched data """
@@ -18,7 +18,7 @@ def data_cacher(fn: Callable) -> Callable:
         if result:
             return result.decode('utf-8')
         response = fn(url)
-        client.setex(f'{url}', response, 10)
+        client.set(f'{url}', response, 10)
         return response
     return invoker
 
@@ -29,3 +29,10 @@ def get_page(url: str) -> str:
     response, and tracking the request"""
     response = requests.get(url, timeout=10)
     return response.text
+
+
+if __name__ == '__main__':
+    url = ('http://slowwly.robertomurray.co.uk/delay/1000/url')
+    for _ in range(5):
+        print(get_page(url))
+        time.sleep(2)
