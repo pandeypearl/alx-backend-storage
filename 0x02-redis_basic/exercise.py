@@ -21,7 +21,7 @@ def count_calls(method: Callable) -> Callable:
 
 
 def call_history(method: Callable) -> Callable:
-    """Tracks the call history of a method in 
+    """Tracks the call history of a method in
     Cache class"""
     @wraps(method)
     def invoker(self, *args, **kwargs) -> Any:
@@ -68,7 +68,7 @@ class Cache:
         """ Constructor function """
         self._redis = redis.Redis()
         self._redis.flushdb()
-    
+
     @call_history
     @count_calls
     def store(self, data: Union[str, bytes, int, float]) -> str:
