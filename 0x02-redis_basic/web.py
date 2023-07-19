@@ -11,7 +11,7 @@ redis_store = redis.Redis()
 """ Module-level Redis instance """
 
 
-def data_cacher(methos: Callable) -> Callable:
+def data_cacher(method: Callable) -> Callable:
     """ Caches output of fetched data """
     @wraps(method)
     def invoker(url) -> str:
